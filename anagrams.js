@@ -46,8 +46,7 @@ function anagramSolution2(str1, str2) {
 
   let obj = {};
 
-  for (let i = 0; i < str1.length; i++) {
-    let char = str1[i];
+  for (const char of str1) {
     obj[char] ? (obj[char] += 1) : (obj[char] = 1);
   }
 
@@ -55,17 +54,20 @@ function anagramSolution2(str1, str2) {
   // if no => return false
   // if yes, subtract 1 from the object at key
 
-  for (let i = 0; i < str2.length; i++) {
-    let char = str2[i];
+  for (const char of str2) {
+    //  can't find letter in obj keys or if obj at key letter is zero then it's
+    //  not an anagram
+
     if (!obj[char]) return false;
     else obj[char] -= 1;
   }
 
-  //console.log("what is obj", obj);
+  console.log("what is obj", obj);
 
   return true;
 }
 
+console.log("-------SOLUTION 2---------");
 console.log(anagramSolution2("iceman", "cinema"));
 console.log(anagramSolution2("aaz", "zza"));
 console.log(anagramSolution2("rat", "car"));
