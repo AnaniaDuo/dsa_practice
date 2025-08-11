@@ -35,3 +35,10 @@ function searchSolution2(arr, num) {
 console.log("-------SOLUTION 2---------");
 console.log(searchSolution2([1, 2, 3, 5], 2)); //1
 console.log(searchSolution2([1, 2, 3, 4, 5, 6, 7, 8], 8)); //7
+console.log(searchSolution2([1, 2, 3, 4, 5, 6, 7, 9], 8)); //-1
+console.log(searchSolution2([1, 2, 3, 4, 5, 6, 7, 8], 9)); //-1
+console.log(searchSolution2([1, 2, 3, 4, 5, 7, 15, 22], 15)); //6
+console.log(searchSolution2([1, 2, 3, 4, 5, 7, 15, 22], 22)); //7
+console.log(searchSolution2([1, 2, 3, 4, 5, 7, 15, 22], 8)); //-1
+console.log(searchSolution2([1, 2, 3, 4, 5, 7, 15, 22], 3)); //2
+console.log(searchSolution2([1, 2, 3, 4, 5, 7, 15, 22], 1)); //0
