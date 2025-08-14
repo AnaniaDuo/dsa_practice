@@ -13,3 +13,21 @@ function splitNumber(num1) {
 }
 
 splitNumber(100);
+
+function test(num, fororwhile) {
+  let counter = 0;
+  if (fororwhile === "while") {
+    while (counter !== num) {
+      counter++;
+      console.log("print out");
+    }
+  } else {
+    for (let i = 0; i < num; i++) {
+      console.log("print out for");
+    }
+  }
+}
+
+console.log(test(3, "while"));
+console.log("-----");
+console.log(test(3, "if"));
