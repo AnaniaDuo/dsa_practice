@@ -52,6 +52,48 @@ class Graph {
     dfsHelper(start);
     return result;
   }
+
+  depthFirstIterative(start) {
+    let result = [];
+    let visited = {};
+    let stack = [start];
+    visited[start] = true;
+    let currentVertex;
+
+    while (stack.length) {
+      currentVertex = stack.pop();
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
+
+  // from a start node, keep visiting all children of the node before moving on to children of chidren
+  breadthFirstSearch(start) {
+    let result = [];
+    let visited = {};
+    visited[start] = true;
+    let currentVertex;
+    let queue = [start];
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 let graph = new Graph();
@@ -82,3 +124,5 @@ graph.addEdge("E", "F");
  */
 
 console.log(graph.depthFirstRecursive("A"));
+console.log(graph.depthFirstIterative("A"));
+console.log(graph.breadthFirstSearch("A"));
